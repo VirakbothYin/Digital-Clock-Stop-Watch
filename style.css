@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #282c34;
+    display: flex;
+    color: white;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    animation: fadeIn 0.5s;
+
+}
+.container {
+    text-align: center;
+}
+.clock {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: pulse 1s infinite;
+}
+.stopwatch {
+    margin-top: 20px;
+
+}
+#stopwatchDisplay {
+    font-size: 30px;
+    margin-bottom: 10px;
+    animation: pulse 1s infinite;
+}
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    
+    color: black;
+    transition: transform 0.2s;
+}
+button:hover {
+    transform: scale(1.1);
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+        to {
+            opacity: 1;
+        }
+    }
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+        50% {
+            transform: scale(1.05);
+        }
+    
+}
