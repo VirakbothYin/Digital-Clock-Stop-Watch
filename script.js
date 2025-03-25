@@ -32,7 +32,7 @@ document.getElementById('stopBtn').addEventListener('click', () => {
     clearInterval(stopwatchInterval);
 });
 
-document.getElementById('resetBtn').addEventListener('click', () => {Q
+document.getElementById('resetBtn').addEventListener('click', () => {
     clearInterval(stopwatchInterval);
     stopwatchTime = 0;
     updateStopwatchDisplay();
