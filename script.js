@@ -1,41 +1,64 @@
-// clock functionality
-function updateClock() {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+body {
+    font-family: Passion One, bold;
+    background-color: #282c34;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;;
+    height: 100vh;
+    margin: 0;
+    animation: fadeIn 0.5s;
+
 }
-setInterval (updateClock, 1000);
-
-// stopwatch functionality
-
-let stopwatchInterval;
-let stopwatchTime = 0;
-
-function updateStopwatchDisplay() {
-    const hours = String(Math.floor(stopwatchTime / 3600)).padStart(2, '0');
-    const minutes = String(Math.floor((stopwatchTime % 3600) / 60)).padStart(2, '0');
-    const seconds = String(stopwatchTime % 60).padStart(2, '0');
-    document.getElementById('stopwatchDisplay').textContent = `${hours}:${minutes}:${seconds}`;
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;;
 }
+.clock {
+    font-size: 68px;
+    margin-bottom: 20px;
+    animation: pulse 3s infinite;
+}
+.stopwatch {
+    margin-top: 20px;
 
-document.getElementById('startBtn').addEventListener('click', () => {
-    clearInterval(stopwatchInterval);
-    stopwatchInterval = setInterval(() => {
-        stopwatchTime++;
-        updateStopwatchDisplay();
-    }, 1000);
-});
-
-document.getElementById('stopBtn').addEventListener('click', () => {
-    clearInterval(stopwatchInterval);
-});
-
-document.getElementById('resetBtn').addEventListener('click', () => {
-    clearInterval(stopwatchInterval);
-    stopwatchTime = 0;
-    updateStopwatchDisplay();
-});
-updateClock();
+}
+#stopwatchDisplay {
+    font-size: 50px;
+    margin-bottom: 10px;
+    animation: pulse 3s infinite;
+}
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
     
+    color: black;
+    transition: transform 0.2s;
+}
+button:hover {
+    transform: scale(1.1);
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+        to {
+            opacity: 1;
+        }
+    }
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+        50% {
+            transform: scale(1.05);
+        }
+    
+}
